@@ -44,7 +44,7 @@ if (appEnv === 'production') {
     app.set('port',3000);
 }else{
     console.log("We are in devel");
-    app.set('port',4444);
+    app.set('port',4000);
     app.set('debug',1);
 }
 

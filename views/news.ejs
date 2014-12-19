@@ -3,6 +3,14 @@
 <head>
     <link  href='/stylesheets/style.css' rel='stylesheet'/>
     <link href="/stylesheets/bootstrap.min.css" rel="stylesheet" />
+    <script src="/javascripts/tinymce/tinymce.min.js"></script>
+    <script type="text/javascript">
+        tinymce.init({
+          selector: "textarea",    
+          plugins: ["image","preview"],
+        });
+    </script>
+
     <title><%= title %></title>
 </head>
 <body>
@@ -16,37 +24,33 @@
 
         <input type="button" class="btn btn-default navbar-btn" id="submitNews" value="Add News Item"/>
     </div>
-    <script src="/javascripts/tinymce/tinymce.min.js"></script>
-    <script type="text/javascript">
-        tinymce.init({
-          selector: "textarea",    
-          plugins: ["image","preview"],
-        });
-    </script>
-    <script src="/javascripts/jquery.min.js" / >
+
+    <script src="/javascripts/jquery.min.js" / ></script>
     <script>
-    /* jQuery access to the actual content */
+
+    /* use jQuery to access the input and post it to redisDB */
     $(function() {
-	console.log( "ready!" );
+        console.log( "ready!" );
 
-	/* handle user submission of text */
-	$( "#submitNews" ).click(function(){
+        /* handle user submission of text */
+        $( "#submitNews" ).click(function(){
 
-		var postURL = "/devel/news";
+            var postURL = "/news/",
+                content = tinyMCE.activeEditor.getContent() || undefined;
 
-		content = tinyMCE.activeEditor.getContent() || undefined
-		if (content != undefined){
-			console.log(content);
+            if (content != undefined){
+                console.log(content);
 
-			$.ajax({
-				type: "POST",
-				url: postURL,
-				data: {"content" :content},
-				success: function(){console.log('posted')},
-				dataType: JSON
-			}); //ajax
-		} // if
-	}); //click
+                $.ajax({
+                    type: "POST",
+                    url: postURL,
+                    data: {"content" :content},
+                    success: function()
+                        {console.log('Posting succesul')},
+                    dataType: JSON
+                }); //ajax
+            } // if
+        }); //click
     }); // document.ready()
     </script>
 </body>
