@@ -2,16 +2,17 @@
 <html>
 <head>
 	<link rel='stylesheet' href='/stylesheets/style.css' />
-<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js">
-	</script>
-	<!-- TinyMCE and jQuery via CDN //-->
-	<script src="//tinymce.cachefly.net/4.1/tinymce.min.js"></script>
+	
+	<!-- TinyMCE and jQuery locally //-->
+	<script src="/javascript/jquery.min.js" />
+	<script src="/javascript/tinymce.min.js">
 	<script type="text/javascript">
 		tinymce.init({
 		selector: "textarea",    
 		plugins: ["image","preview"],
 	});
 	</script>
+	
 	<title><%= title %></title>
 	</head>
 	<body>
