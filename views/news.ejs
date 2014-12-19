@@ -1,39 +1,32 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<link rel='stylesheet' href='/stylesheets/style.css' />
-	
-	<!-- TinyMCE and jQuery locally //-->
-	<script src="/javascript/jquery.min.js" />
-	<script src="/javascript/tinymce.min.js">
-	<script type="text/javascript">
-		tinymce.init({
-		selector: "textarea",    
-		plugins: ["image","preview"],
-	});
-	</script>
-	
-	<title><%= title %></title>
-	</head>
-	<body>
-		<h1><%= title %></h1>
-		<p>News Entry</p>
-		<form method="post">
-			<textarea></textarea>
-		</form>
+    <link  href='/stylesheets/style.css' rel='stylesheet'/>
+    <link href="/stylesheets/bootstrap.min.css" rel="stylesheet" />
+    <title><%= title %></title>
+</head>
+<body>
+    <div class="container">
+        <div class="page-header">
+            <h1><%= title %></h1>
+        </div>
+        <form method="post">
+            <textarea></textarea>
+        </form>
 
-		<input type="button" id="submitNews" value="Add News Item"/>
-
-
-
-
-
-
-<script>
-/* jQuery access to the actual content */
-
-// Shorthand for $( document ).ready()
-$(function() {
+        <input type="button" class="btn btn-default navbar-btn" id="submitNews" value="Add News Item"/>
+    </div>
+    <script src="/javascripts/tinymce/tinymce.min.js"></script>
+    <script type="text/javascript">
+        tinymce.init({
+          selector: "textarea",    
+          plugins: ["image","preview"],
+        });
+    </script>
+    <script src="/javascripts/jquery.min.js" / >
+    <script>
+    /* jQuery access to the actual content */
+    $(function() {
 	console.log( "ready!" );
 
 	/* handle user submission of text */
@@ -54,10 +47,9 @@ $(function() {
 			}); //ajax
 		} // if
 	}); //click
-}); // document.ready()
-
-</script>
-	</body>
+    }); // document.ready()
+    </script>
+</body>
 </html>
 
 
