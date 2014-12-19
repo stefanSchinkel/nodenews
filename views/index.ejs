@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <body>
+    <%if (loglevel > 0) { %>
+	<h1 style="color:red">DEVEL</h1>
+	<% } %>
+    <h1><%= title %></h1>
+    <p>Welcome to <%= title %></p>
+    <p>Why not <a href="/devel/news/">add a news item?</a></p>
+    <hr />
+    <h2>Here's the old news</h2>
+  </body>
+</html>

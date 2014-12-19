@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<link rel='stylesheet' href='/stylesheets/style.css' />
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js">
+	</script>
+	<!-- TinyMCE and jQuery via CDN //-->
+	<script src="//tinymce.cachefly.net/4.1/tinymce.min.js"></script>
+	<script type="text/javascript">
+		tinymce.init({
+		selector: "textarea",    
+		plugins: ["image","preview"],
+	});
+	</script>
+	<title><%= title %></title>
+	</head>
+	<body>
+		<h1><%= title %></h1>
+		<p>News Entry</p>
+		<form method="post">
+			<textarea></textarea>
+		</form>
+
+		<input type="button" id="submitNews" value="Add News Item"/>
+
+
+
+
+
+
+<script>
+/* jQuery access to the actual content */
+
+// Shorthand for $( document ).ready()
+$(function() {
+	console.log( "ready!" );
+
+	/* handle user submission of text */
+	$( "#submitNews" ).click(function(){
+
+		var postURL = "/devel/news";
+
+		content = tinyMCE.activeEditor.getContent() || undefined
+		if (content != undefined){
+			console.log(content);
+
+			$.ajax({
+				type: "POST",
+				url: postURL,
+				data: {"content" :content},
+				success: function(){console.log('posted')},
+				dataType: JSON
+			}); //ajax
+		} // if
+	}); //click
+}); // document.ready()
+
+</script>
+	</body>
+</html>
+
+
