@@ -11,6 +11,7 @@ router.get('/', function(req, res) {
 router.post('/', function(req,res){
 	console.log('Posted to news was:');
 	console.log(req.body)
+    res.end('It worked!');
 });
 
 module.exports = router;

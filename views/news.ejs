@@ -40,15 +40,26 @@
 
             if (content != undefined){
                 console.log(content);
-
-                $.ajax({
+                
+                var request = $.ajax({
                     type: "POST",
                     url: postURL,
                     data: {"content" :content},
-                    success: function()
-                        {console.log('Posting succesul')},
+                    success: function(){console.log('Posting successful')},
                     dataType: JSON
-                }); //ajax
+                }); // var
+                request.done(function( msg ) {
+                    console.log(msg);
+                });
+
+                // $.ajax({
+                //     type: "POST",
+                //     url: postURL,
+                //     data: {"content" :content},
+                //     success: function(){console.log('Posting successful')},
+                //     dataType: JSON
+                // }); //ajax
+                
             } // if
         }); //click
     }); // document.ready()
