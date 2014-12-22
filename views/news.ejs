@@ -40,27 +40,11 @@
 
             if (content != undefined){
                 console.log(content);
-                
-                var request = $.ajax({
-                    type: "POST",
-                    url: postURL,
-                    data: {"content" :content},
-                    success: function(){console.log('Posting successful')},
-                    dataType: JSON
-                }); // var
-                request.done(function( msg ) {
-                    console.log(msg);
-                });
-
-                // $.ajax({
-                //     type: "POST",
-                //     url: postURL,
-                //     data: {"content" :content},
-                //     success: function(){console.log('Posting successful')},
-                //     dataType: JSON
-                // }); //ajax
-                
+                var jqxhr = $.post( postURL, 
+                        {content: content },function() {alert( "success" );
+                                window.location = ('/');});
             } // if
+
         }); //click
     }); // document.ready()
     </script>
