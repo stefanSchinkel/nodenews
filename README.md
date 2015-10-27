@@ -1,12 +1,12 @@
 nodeNews
 ========
 
-A tiny web-app trying to make
+Tiny web-app trying to get
 
 - nginx
-- nodejs (running express 4.x)
-- redisDB 
-- and jQuery/TinyMCE 
+- node
+- express.js
+- redisDB
+- and jQuery/TinyMCE
 
-work together in a simple "webApp" that provides a simple
-news feed.
+to work together to provide a news feed.
